@@ -7,10 +7,36 @@
 </head>
 
 <body>
-  <input type="text" name="toDo" value="What to do?">
-  <button type="button" name="button" method="post">Add</button>
+  <form action="/" method="post">
+    <input type="text" name="toDo" value="What to do?">
+    <button type="submit" name="button">Add</button>
+  </form>
 
-{{ errors }}
+  <div class="list">
+    <form action="/" method="post">
+
+      <ul>
+        {{ #toDos }}
+        <li>
+          <p> {{ . }} </p><button type="submit">Mark Complete</button>
+        </li>
+        {{ /toDos }}
+      </ul>
+    </form>
+  </div>
+  <div class="completed">
+    <form action="/" method="get">
+
+      <ul>
+        {{ #complete }}
+        <li> {{.}} </li>
+        {{ /complete }}
+      </ul>
+    </form>
+
+  </div>
+
+
 </body>
 
 </html>
